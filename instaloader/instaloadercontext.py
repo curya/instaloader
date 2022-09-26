@@ -317,10 +317,16 @@ class InstaloaderContext:
         try:
             self.do_sleep()
             if is_graphql_query:
+                print('sleep for 6 seconds')
+                time.sleep(6)
                 #self._rate_controller.wait_before_query(params['query_hash'])
             if is_iphone_query:
+                print('sleep for 6 seconds')
+                time.sleep(6)
                 #self._rate_controller.wait_before_query('iphone')
             if is_other_query:
+                print('sleep for 6 seconds')
+                time.sleep(6)
                 #self._rate_controller.wait_before_query('other')
             resp = sess.get('https://{0}/{1}'.format(host, path), params=params, allow_redirects=False)
             if resp.status_code in self.fatal_status_codes:
@@ -386,10 +392,16 @@ class InstaloaderContext:
             try:
                 if isinstance(err, TooManyRequestsException):
                     if is_graphql_query:
+                        print('sleep for 5 seconds')
+                        time.sleep(5)
                         #self._rate_controller.handle_429(params['query_hash'])
                     if is_iphone_query:
+                        print('sleep for 5 seconds')
+                        time.sleep(5)
                         #self._rate_controller.handle_429('iphone')
                     if is_other_query:
+                        print('sleep for 5 seconds')
+                        time.sleep(5)
                         #self._rate_controller.handle_429('other')
                 return self.get_json(path=path, params=params, host=host, session=sess, _attempt=_attempt + 1)
             except KeyboardInterrupt:
