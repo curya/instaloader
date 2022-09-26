@@ -386,11 +386,11 @@ class InstaloaderContext:
             try:
                 if isinstance(err, TooManyRequestsException):
                     if is_graphql_query:
-                        self._rate_controller.handle_429(params['query_hash'])
+                        #self._rate_controller.handle_429(params['query_hash'])
                     if is_iphone_query:
-                        self._rate_controller.handle_429('iphone')
+                        #self._rate_controller.handle_429('iphone')
                     if is_other_query:
-                        self._rate_controller.handle_429('other')
+                        #self._rate_controller.handle_429('other')
                 return self.get_json(path=path, params=params, host=host, session=sess, _attempt=_attempt + 1)
             except KeyboardInterrupt:
                 self.error("[skipped by user]", repeat_at_end=False)
