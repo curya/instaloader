@@ -317,11 +317,11 @@ class InstaloaderContext:
         try:
             self.do_sleep()
             if is_graphql_query:
-                self._rate_controller.wait_before_query(params['query_hash'])
+                #self._rate_controller.wait_before_query(params['query_hash'])
             if is_iphone_query:
-                self._rate_controller.wait_before_query('iphone')
+                #self._rate_controller.wait_before_query('iphone')
             if is_other_query:
-                self._rate_controller.wait_before_query('other')
+                #self._rate_controller.wait_before_query('other')
             resp = sess.get('https://{0}/{1}'.format(host, path), params=params, allow_redirects=False)
             if resp.status_code in self.fatal_status_codes:
                 redirect = " redirect to {}".format(resp.headers['location']) if 'location' in resp.headers else ""
