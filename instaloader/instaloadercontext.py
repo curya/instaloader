@@ -315,18 +315,19 @@ class InstaloaderContext:
         is_other_query = not is_graphql_query and host == "www.instagram.com"
         sess = session if session else self._session
         try:
+            delay = random.randint(9,14)
             self.do_sleep()
             if is_graphql_query:
-                print('sleep for 6 seconds')
-                time.sleep(6)
+                print("Sleeping for " + str(delay) + " seconds")
+                time.sleep(delay)
                 #self._rate_controller.wait_before_query(params['query_hash'])
             if is_iphone_query:
-                print('sleep for 6 seconds')
-                time.sleep(6)
+                print("Sleeping for " + str(delay) + " seconds")
+                time.sleep(delay)
                 #self._rate_controller.wait_before_query('iphone')
             if is_other_query:
-                print('sleep for 6 seconds')
-                time.sleep(6)
+                print("Sleeping for " + str(delay) + " seconds")
+                time.sleep(delay)
                 #self._rate_controller.wait_before_query('other')
             resp = sess.get('https://{0}/{1}'.format(host, path), params=params, allow_redirects=False)
             if resp.status_code in self.fatal_status_codes:
