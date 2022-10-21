@@ -315,7 +315,7 @@ class InstaloaderContext:
         is_other_query = not is_graphql_query and host == "www.instagram.com"
         sess = session if session else self._session
         try:
-            delay = random.randint(59,60)
+            delay = random.randint(55,65)
             self.do_sleep()
             if is_graphql_query:
                 print("Sleeping for " + str(delay) + " seconds")
